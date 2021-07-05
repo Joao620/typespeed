@@ -19,17 +19,20 @@ def iniciar_movedor(gp, terminal):
     return movedor
 
 def main(stdscr):
-    while True:
-        curses.curs_set(0)  #deixa o cursos invisivel
-        gp = Gerenciador_palavras()
-        terminal = Terminal(stdscr)
+    try:
+        while True:
+            curses.curs_set(0)  #deixa o cursos invisivel
+            gp = Gerenciador_palavras()
+            terminal = Terminal(stdscr)
 
-        teclado = iniciar_teclado(stdscr, gp, terminal)
-        movedor = iniciar_movedor(gp, terminal)
-        
-        gp.inscrever(terminal)
-        
-        movedor.join()
+            teclado = iniciar_teclado(stdscr, gp, terminal)
+            movedor = iniciar_movedor(gp, terminal)
+            
+            gp.inscrever(terminal)
+            
+            movedor.join()
+    except: 
+        pass
 
 
 if __name__ == '__main__':
